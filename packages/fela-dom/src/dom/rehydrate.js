@@ -49,7 +49,7 @@ export default function rehydrate(renderer: DOMRenderer): void {
           rehydrateRules(css, media, '', renderer.cache)
         }
 
-        arrayEach(node.sheet.cssRules, rule => {
+        arrayEach(node.sheet ? node.sheet.cssRules : [], rule => {
           const selectorText = rule.conditionText
             ? rule.cssRules[0].selectorText
             : rule.selectorText
